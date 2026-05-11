@@ -1,43 +1,66 @@
 <p align="center">
-  <img src="assets/logo.svg" width="128" alt="校园暴力识别 Logo">
+  <img src="assets/logo.svg" width="130" alt="校园暴力识别 Logo">
 </p>
 
-<h1 align="center">校园暴力识别系统</h1>
+<h1 align="center">🛡️ 校园暴力识别系统</h1>
 <h3 align="center">Campus Violence Recognition</h3>
+
+<p align="center">
+  <strong>基于 MobileNetV2 的校园暴力 / 非暴力视频二分类项目</strong>
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.9-3776AB?logo=python&logoColor=white" alt="Python 3.9">
   <img src="https://img.shields.io/badge/TensorFlow-2.10-FF6F00?logo=tensorflow&logoColor=white" alt="TensorFlow 2.10">
-  <img src="https://img.shields.io/badge/Backbone-MobileNetV2-2E8B57" alt="MobileNetV2">
-  <img src="https://img.shields.io/badge/Task-Video%20Classification-6A5ACD" alt="Video Classification">
-  <img src="https://img.shields.io/badge/FFmpeg-Required-007808?logo=ffmpeg&logoColor=white" alt="FFmpeg">
-  <img src="https://img.shields.io/badge/Models-GitHub%20Releases-181717?logo=github" alt="GitHub Releases">
+  <img src="https://img.shields.io/badge/Keras-2.10-D00000?logo=keras&logoColor=white" alt="Keras 2.10">
+  <img src="https://img.shields.io/badge/MobileNetV2-Transfer%20Learning-2E8B57" alt="MobileNetV2">
+  <img src="https://img.shields.io/badge/FFmpeg-Video%20Preprocessing-007808?logo=ffmpeg&logoColor=white" alt="FFmpeg">
+  <img src="https://img.shields.io/badge/TFLite-FP16%20Export-6A5ACD" alt="TFLite FP16">
+  <img src="https://img.shields.io/badge/License-MIT-181717" alt="MIT License">
 </p>
 
 <p align="center">
-  基于 <b>MobileNetV2</b> 的校园暴力 / 非暴力视频二分类项目<br>
-  覆盖视频抽帧、迁移学习训练、模型评估、单视频推理与 TFLite 导出
+  <a href="#-项目简介">项目简介</a> ·
+  <a href="#-快速开始">快速开始</a> ·
+  <a href="#-实验结果">实验结果</a> ·
+  <a href="#-预训练模型">预训练模型</a> ·
+  <a href="#-license">License</a>
 </p>
 
 ---
 
-## 目录
+## ✨ 项目亮点
 
-- [项目简介](#项目简介)
-- [仓库结构](#仓库结构)
-- [环境配置](#环境配置)
-- [数据集目录](#数据集目录)
-- [视频抽帧](#视频抽帧)
-- [数据集检查](#数据集检查)
-- [模型训练](#模型训练)
-- [预训练模型与 GitHub Releases](#预训练模型与-github-releases)
-- [单视频预测](#单视频预测)
-- [实验结果](#实验结果)
-- [Git 跟踪规则](#git-跟踪规则)
+| 模块 | 说明 |
+|---|---|
+| 🎞️ 视频预处理 | 使用 FFmpeg 对原始视频进行抽帧与重新封装 |
+| 🧠 深度学习模型 | 使用 MobileNetV2 迁移学习完成 Violence / NonViolence 二分类 |
+| 📊 实验评估 | 输出 Accuracy、AUC、Precision、Recall、F1-score 和 Confusion Matrix |
+| 🚀 推理部署 | 支持单视频预测，并导出 FP16 TFLite 模型 |
+| 📦 模型分发 | 大模型文件通过 GitHub Releases 作为 Release Assets 发布 |
 
 ---
 
-## 项目简介
+## 🧭 目录
+
+- [✨ 项目亮点](#-项目亮点)
+- [📌 项目简介](#-项目简介)
+- [📁 仓库结构](#-仓库结构)
+- [⚙️ 环境配置](#️-环境配置)
+- [📦 数据集目录](#-数据集目录)
+- [🎞️ 视频抽帧](#️-视频抽帧)
+- [🔎 数据集检查](#-数据集检查)
+- [🧠 模型训练](#-模型训练)
+- [🚀 预训练模型](#-预训练模型)
+- [🎬 单视频预测](#-单视频预测)
+- [📊 实验结果](#-实验结果)
+- [⚠️ 模型限制与使用声明](#️-模型限制与使用声明)
+- [🗂️ Git 跟踪规则](#️-git-跟踪规则)
+- [📄 License](#-license)
+
+---
+
+## 📌 项目简介
 
 本项目面向校园场景下的视频暴力行为识别任务，使用 **MobileNetV2** 作为特征提取骨干网络，并在其后接入全局平均池化、全连接层、Dropout、BatchNorm 与 Sigmoid 输出层，实现 **Violence / NonViolence** 二分类。
 
@@ -59,37 +82,38 @@
 
 ---
 
-## 仓库结构
+## 📁 仓库结构
 
 ```text
-校园暴力识别/
+campus-violence-recognition/
 ├─ assets/
-│  └─ logo.svg                 # 项目标识
+│  └─ logo.svg
 ├─ src/
-│  ├─ ffmpeg_utils.py          # FFmpeg 查找与子进程调用工具
-│  ├─ 01_fix_videos.py         # 视频重新封装 / 修复
-│  ├─ 02_extract_frames.py     # 视频抽帧
-│  ├─ 03_check_dataset.py      # 数据集结构检查
-│  ├─ 04_train_model.py        # 模型训练、评估、TFLite 导出
-│  └─ 05_predict_video.py      # 单视频推理
-├─ dataset/                    # 原始视频目录占位
-├─ frames/                     # 抽帧图片目录占位
-├─ fixed_videos/               # 修复后视频目录占位
-├─ models/                     # 模型目录占位，模型文件通过 Releases 分发
-├─ logs/                       # TensorBoard 日志目录占位
-├─ results/                    # 训练指标与预测示例记录
-├─ scripts/                    # Windows 辅助脚本
-├─ docs/                       # 项目文档
-├─ environment_tf210_py39.yml  # Conda 环境配置
-├─ requirements_tf210.txt      # pip 依赖列表
-├─ PROJECT_FILES_MANIFEST.txt  # 文件清单
+│  ├─ ffmpeg_utils.py
+│  ├─ 01_fix_videos.py
+│  ├─ 02_extract_frames.py
+│  ├─ 03_check_dataset.py
+│  ├─ 04_train_model.py
+│  └─ 05_predict_video.py
+├─ dataset/
+├─ frames/
+├─ fixed_videos/
+├─ models/
+├─ logs/
+├─ results/
+├─ scripts/
+├─ docs/
+├─ environment_tf210_py39.yml
+├─ requirements_tf210.txt
+├─ PROJECT_FILES_MANIFEST.txt
 ├─ README.md
+├─ LICENSE
 └─ .gitignore
 ```
 
 ---
 
-## 环境配置
+## ⚙️ 环境配置
 
 参考环境：
 
@@ -97,6 +121,7 @@
 Windows 10 / 11
 Python 3.9
 TensorFlow 2.10.x
+Keras 2.10.x
 FFmpeg
 CUDA-capable GPU，可选
 ```
@@ -129,7 +154,7 @@ ffmpeg -version
 
 ---
 
-## 数据集目录
+## 📦 数据集目录
 
 原始视频数据集不进入 Git 跟踪，原因是文件体积较大且存在数据集再分发限制。目录结构如下：
 
@@ -155,7 +180,7 @@ dataset/
 
 ---
 
-## 视频抽帧
+## 🎞️ 视频抽帧
 
 标准抽帧命令：
 
@@ -185,7 +210,7 @@ python src/02_extract_frames.py --input fixed_videos --output frames --fps 1 --o
 
 ---
 
-## 数据集检查
+## 🔎 数据集检查
 
 ```powershell
 python src/03_check_dataset.py
@@ -203,7 +228,7 @@ Found 2103 images belonging to 2 classes.
 
 ---
 
-## 模型训练
+## 🧠 模型训练
 
 默认训练命令：
 
@@ -239,7 +264,7 @@ models/best_model_finetuned.h5
 
 ---
 
-## 预训练模型与 GitHub Releases
+## 🚀 预训练模型
 
 训练后的模型文件不提交到 Git 仓库，通过 **GitHub Releases** 作为 Release Asset 分发。
 
@@ -255,16 +280,16 @@ Release Asset 内容：
 
 ```text
 models/
-├─ best_model_finetuned.h5     # 最终微调后的 Keras 推理模型
-├─ best_model_fp16.tflite      # FP16 TFLite 部署模型
-└─ best_model_frozen.h5        # 冻结骨干网络阶段最佳模型
+├─ best_model_finetuned.h5
+├─ best_model_fp16.tflite
+└─ best_model_frozen.h5
 ```
 
 模型包解压到项目根目录后，`models/` 目录即可用于单视频推理。
 
 ---
 
-## 单视频预测
+## 🎬 单视频预测
 
 暴力视频示例：
 
@@ -291,7 +316,7 @@ python src/05_predict_video.py --video ".\dataset\NonViolence\NV_100.mp4" --mode
 
 ---
 
-## 实验结果
+## 📊 实验结果
 
 验证集规模：
 
@@ -329,7 +354,15 @@ NV_1000.mp4   avg_prob=0.0694    prediction=NonViolence
 
 ---
 
-## Git 跟踪规则
+## ⚠️ 模型限制与使用声明
+
+本项目基于视频抽帧后的图像帧进行 Violence / NonViolence 二分类识别，视频级预测结果由帧级概率聚合得到。模型性能可能受到画面清晰度、摄像角度、动作发生时间、遮挡、场景差异和数据分布差异等因素影响。
+
+本项目仅用于学习、实验和安全场景研究，不应用于未经人工复核的自动化处罚、身份判断或其他高风险决策。
+
+---
+
+## 🗂️ Git 跟踪规则
 
 `.gitignore` 保留代码、说明文档、结果记录和目录占位文件，同时排除数据集、抽帧结果、训练日志与模型大文件。
 
@@ -342,3 +375,11 @@ models/*
 ```
 
 `dataset/`、`frames/`、`fixed_videos/`、`models/` 和 `logs/` 目录通过 `.gitkeep` 与 README 文件保留目录结构。
+
+---
+
+## 📄 License
+
+本项目代码基于 MIT License 开源。详见 [LICENSE](LICENSE)。
+
+数据集和预训练模型文件不包含在 Git 仓库中，相关使用需遵守其各自来源和发布平台的许可要求。
