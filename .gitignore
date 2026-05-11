@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+ENV/
+.conda/
+
+# IDE
+.vscode/
+.idea/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Local config / secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Data and outputs
+data/raw/**
+data/fixed/**
+data/frames/**
+runs/**
+logs/**
+checkpoints/**
+models/**
+
+# Keep directory placeholders
+!data/raw/.gitkeep
+!data/fixed/.gitkeep
+!data/frames/.gitkeep
+!runs/.gitkeep
+
+# Large files
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.h5
+*.keras
+*.tflite
+*.pkl
+*.ckpt
+*.pb
+*.onnx
+*.zip
+*.rar
+*.7z
