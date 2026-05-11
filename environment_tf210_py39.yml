@@ -1,0 +1,19 @@
+name: tf210_py39
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - ffmpeg
+  - numpy=1.23.5
+  - scipy=1.9.3
+  - pip:
+      - tensorflow==2.10.1
+      - keras==2.10.0
+      - pillow>=9.0.0,<11
+      - opencv-python>=4.8.0
+      - scikit-learn>=1.2.0
+      - matplotlib>=3.7.0
+      - h5py>=3.7.0
+      - protobuf>=3.19.6,<3.20

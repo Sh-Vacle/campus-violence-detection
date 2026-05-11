@@ -1,0 +1,33 @@
+校园暴力识别项目文件清单
+
+1. 核心代码
+- assets/logo.svg：项目标识。
+- src/ffmpeg_utils.py：FFmpeg 查找与跨平台子进程调用工具。
+- src/01_fix_videos.py：视频重新封装 / 修复脚本。
+- src/02_extract_frames.py：视频抽帧脚本。
+- src/03_check_dataset.py：抽帧数据集检查脚本。
+- src/04_train_model.py：MobileNetV2 训练、评估与 TFLite 导出脚本。
+- src/05_predict_video.py：单视频推理脚本。
+
+2. 运行辅助文件
+- scripts/run_pipeline_windows.bat：Windows 训练流程辅助脚本。
+- scripts/predict_examples_windows.bat：Windows 示例推理辅助脚本。
+- requirements_tf210.txt：pip 依赖列表。
+- environment_tf210_py39.yml：Conda 环境配置。
+- README.md：项目说明文档。
+- .gitignore：Git 跟踪规则。
+
+3. 结果记录
+- results/train_result.txt：训练与验证指标记录。
+- results/predict_examples.txt：单视频推理示例记录。
+
+4. 目录占位
+- dataset/：原始视频目录占位。
+- frames/：抽帧图片目录占位。
+- fixed_videos/：重新封装后视频目录占位。
+- models/：模型目录占位，模型文件通过 GitHub Releases 分发。
+- logs/：TensorBoard 日志目录占位。
+
+5. 项目文档
+- docs/OrangePi_KunPeng_Pro_用户手册_v0.4.pdf：OrangePi KunPeng Pro 用户手册。
+- docs/release_assets.md：GitHub Releases 模型资产说明。

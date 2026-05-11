@@ -1,0 +1,32 @@
+校园暴力识别系统 - 训练结果
+
+数据集：
+- 训练集图片数：8418
+- 验证集图片数：2103
+- 类别：NonViolence、Violence
+
+模型结构：
+- MobileNetV2
+- GlobalAveragePooling2D
+- Dense
+- Dropout
+- BatchNormalization
+- Sigmoid 二分类输出
+
+最终模型：
+- models/best_model_finetuned.h5
+
+部署模型：
+- models/best_model_fp16.tflite
+
+评估指标：
+- Loss：0.3095
+- Accuracy：0.9163
+- AUC：0.9653
+- Precision：0.9356
+- Recall：0.8994
+- F1-score：0.9171
+
+混淆矩阵：
+[[953, 67],
+ [109, 974]]
