@@ -1,0 +1,46 @@
+# Dataset and generated frames
+dataset/*
+frames/*
+fixed_videos/*
+
+# Logs
+logs/*
+
+# Model artifacts
+models/*
+!models/README.md
+!models/.gitkeep
+
+# Keep placeholder documents
+!dataset/README.md
+!dataset/.gitkeep
+!frames/README.md
+!frames/.gitkeep
+!fixed_videos/README.md
+!fixed_videos/.gitkeep
+!logs/README.md
+!logs/.gitkeep
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# TensorBoard and temporary files
+*.log
+tmp/
+temp/
