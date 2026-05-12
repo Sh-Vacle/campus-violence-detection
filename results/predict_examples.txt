@@ -1,16 +1,19 @@
+========================================
 校园暴力识别系统 - 单视频预测示例
+Campus Violence Recognition - Prediction Examples
+========================================
 
-正确识别的暴力视频：
-- V_100.mp4     avg_prob=0.8291    prediction=Violence
-- V_1000.mp4    avg_prob=0.8426    prediction=Violence
-- V_101.mp4     avg_prob=0.9385    prediction=Violence
+[正确识别的暴力视频]
+V_100.mp4     avg_prob=0.8291    prediction=Violence
+V_1000.mp4    avg_prob=0.8426    prediction=Violence
+V_101.mp4     avg_prob=0.9385    prediction=Violence
 
-正确识别的非暴力视频：
-- NV_10.mp4     avg_prob=0.2222    prediction=NonViolence
-- NV_100.mp4    avg_prob=0.0940    prediction=NonViolence
-- NV_1000.mp4   avg_prob=0.0694    prediction=NonViolence
-- NV_101.mp4    avg_prob=0.1012    prediction=NonViolence
+[正确识别的非暴力视频]
+NV_10.mp4     avg_prob=0.2222    prediction=NonViolence
+NV_100.mp4    avg_prob=0.0940    prediction=NonViolence
+NV_1000.mp4   avg_prob=0.0694    prediction=NonViolence
+NV_101.mp4    avg_prob=0.1012    prediction=NonViolence
 
-误判示例：
-- V_1.mp4       avg_prob=0.2212    prediction=NonViolence
-- V_10.mp4      avg_prob=0.0993    prediction=NonViolence
+[误判示例]
+V_1.mp4       avg_prob=0.2212    prediction=NonViolence
+V_10.mp4      avg_prob=0.0993    prediction=NonViolence
